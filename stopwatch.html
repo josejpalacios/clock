@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Include Bootstrap from CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Include Fonts from Google -->
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+
+    <!-- Include Javascript file -->
+    <script type="text/javascript" src="stopwatch.js"></script>
+
+    <!-- Page Name -->
+    <title>Stopwatch</title>
+</head>
+
+<body style="background-color:black">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="clock.html">Clock</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="timer.html">Minute Timer</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link disabled" href="stopwatch.html">Stopwatch</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container-fluid">
+    <h1 class="display-1" style="color:green; text-align:center">Stopwatch</h1>
+
+    <div class="row">
+        <!-- Start button -->
+        <div class="col">
+            <button id="start-button" class="btn btn-success btn-block" onclick="setupTimer()">Start</button>
+        </div>
+        <!-- Stop button -->
+        <div class="col">
+            <button id="stop-button" class="btn btn-success btn-block" onclick="stopTimer()" disabled>Stop</button>
+        </div>
+    </div>
+
+    <!-- Stopwatch display-->
+    <h1 class="display-1" style="font-family: 'Orbitron'; color:green; text-align:center">
+        <span id="hour-display">00</span>
+        <span>:</span>
+        <span id="minute-display">00</span>
+        <span>:</span>
+        <span id="second-display">00</span>
+    </h1>
+    <div class="row">
+        <!-- Record button -->
+        <div class="col">
+            <button id="record-button" class="btn btn-success btn-block" onclick="recordTimer()" disabled>Record</button>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <!-- Continue button -->
+        <div class="col">
+            <button id="continue-button" class="btn btn-success btn-block" onclick="continueTimer()" disabled>Continue</button>
+        </div>
+        <!-- Reset button -->
+        <div class="col">
+            <button id="reset-button" class="btn btn-success btn-block" onclick="resetTimer()" disabled>Reset</button>
+        </div>
+    </div>
+
+    <br>
+    <!-- User's record list -->
+    <div id="record-list" class="display-1" style="font-family: 'Orbitron';color:green; text-align:center"></div>
+
+
+</div>
+
+</body>
+</html>
