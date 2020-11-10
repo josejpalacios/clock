@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Include Bootstrap from CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Include Fonts from Google -->
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+
+    <!-- Page Name -->
+    <title>Clock</title>
+</head>
+
+<body style="background-color:black">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link disabled" href="clock.html">Clock</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="timer.html">Minute Timer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="stopwatch.html">Stopwatch</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container-fluid">
+    <!-- Display for current time -->
+    <h1 class="display-1" style="color:green; text-align:center">Current Time</h1>
+    <h1 id="clock" class="display-1" style="font-family: 'Orbitron'; color:green; text-align:center"></h1>
+    <div class="row">
+        <!-- Button to change to 12 hour clock -->
+        <div class="col">
+            <button class="btn btn-success btn-block" onclick="changeTo12HourClock()">12 Hour</button>
+        </div>
+        <!-- Button to change to 24 hour clock -->
+        <div class="col">
+            <button class="btn btn-success btn-block" onclick="changeTo24HourClock()">24 Hour</button>
+        </div>
+    </div>
+    <!-- Tag to keep track of timer -->
+    <p id="clock-type" hidden>12</p>
+</div>
+
+<script>
+    function displayCurrentTime() {
+        // Function to display current time
+
+        // Create Date
+        var date = new Date();
+
+        // Get hour, minute and second
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        var second = date.getSeconds();
+
+        // Adjust display of hour, minute, second
+        hour = adjustDisplay(hour);
+        minute = adjustDisplay(minute);
+        second = adjustDisplay(second);
+
+        // Get type of clock to display
+        var clockType = document.getElementById("clock-type").textContent;
+
+        // Create variable to store time
+        var displayTime;
+
+        // If clock type is "12"
+        if (clockType == "12") {
+            // Check for am or pm
+            var ampm = "AM";
+            // If hour is greater than 12
+            if (hour > 12) {
+                // Subtract 12
+                hour -= 12;
+                // Set to pm
+                ampm = "PM";
+            }
+            // Create time display
+            displayTime = hour + ":" + minute + ":" + second + " " + ampm;
+        } else {
+            // Else create time display for 24 hour clock
+            displayTime = hour + ":" + minute + ":" + second
+        }
+        // Set display of clock
+        document.getElementById("clock").textContent = displayTime;
+        // Wait for 1 second make another function call
+        var updateTime = setTimeout(function(){ displayCurrentTime() }, 1000);
+    }
+
+    function adjustDisplay(number) {
+        // Function to adjust display for the given number
+
+        // Create variable to store output
+        var display;
+        // If number is less than 10
+        if (number < 10) {
+            // Add 0 to front of number
+            display = "0" + number;
+        } else {
+            // Else make no change to number
+            display = number;
+        }
+        // Return the display
+        return display;
+    }
+
+    function changeTo12HourClock() {
+        // Function to change clock display to 12 hour clock
+
+        // Set clock type to 12 hour clock
+        document.getElementById("clock-type").textContent = "12";
+    }
+
+    function changeTo24HourClock() {
+        // Function to change clock display to 24 hour clock
+
+        // Set clock type to 24 hour clock
+        document.getElementById("clock-type").textContent = "24";
+    }
+
+    // Run displayCurrentTime function
+    displayCurrentTime();
+</script>
+
+</body>
+</html>
