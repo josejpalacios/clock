@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Include Bootstrap from CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Include Fonts from Google -->
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+
+    <!-- Include Javascript file -->
+    <script type="text/javascript" src="timer.js"></script>
+
+    <!-- Page Name -->
+    <title>Minute Timer</title>
+</head>
+
+<body style="background-color:black">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="clock.html">Clock</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link disabled" href="timer.html">Minute Timer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="stopwatch.html">Stopwatch</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container-fluid">
+    <!-- Drop down for minutes -->
+    <div class="form-group">
+        <h1 class="display-1" style="color:green; text-align:center">Minutes</h1>
+        <!-- Options for drop down -->
+        <select class="form-control" id="minutes">
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+            <option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+            <option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option>
+            <option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option>
+            <option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+            <option>31</option><option>32</option><option>33</option><option>34</option><option>35</option><option>36</option>
+            <option>37</option><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option>
+            <option>43</option><option>44</option><option>45</option><option>46</option><option>47</option><option>48</option>
+            <option>49</option><option>50</option><option>51</option><option>52</option><option>53</option><option>54</option>
+            <option>55</option><option>56</option><option>57</option><option>58</option><option>59</option>
+        </select>
+    </div>
+
+    <!-- Start button -->
+    <button id="start-button" class="btn btn-success btn-block" onclick="setupTimer()">Start</button>
+    <!-- Timer display -->
+    <h1 id="timer" class="display-1" style="font-family: 'Orbitron'; color:green; text-align:center">
+        <span id="minute-display">00</span>
+        <span>:</span>
+        <span id="second-display">00</span>
+    </h1>
+    <!-- Reset button -->
+    <button id="reset-button" class="btn btn-success btn-block" onclick="resetTimer()" disabled>Reset</button>
+
+</div>
+
+</body>
+</html>
